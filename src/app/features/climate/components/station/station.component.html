@@ -1,19 +1,22 @@
 <mat-card class="station-dropdown-card">
-    <mat-card-title>Select a Weather Station</mat-card-title>
-    <mat-card-content>
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Stations</mat-label>
-        <mat-select [(value)]="selectedStation">
-          <mat-option *ngFor="let station of mockStations" [value]="station">
-            {{ station.properties.name }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </mat-card-content>
-  </mat-card>
-  
-  <app-temperature
-    *ngIf="selectedStation"
-    [station]="selectedStation"
-  ></app-temperature>
-  
+  <mat-card-title>Select a Weather Station</mat-card-title>
+  <mat-card-content>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Stations</mat-label>
+      <mat-select [(value)]="selectedStation">
+        <mat-option *ngFor="let station of stations" [value]="station">
+          {{ station.properties.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-content>
+</mat-card>
+
+<app-temperature
+  *ngIf="selectedStation"
+  [station]="selectedStation"
+></app-temperature>
+
+<div *ngIf="errorMessage" class="error">
+  {{ errorMessage }}
+</div>
