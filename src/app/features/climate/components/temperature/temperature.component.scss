@@ -1,0 +1,25 @@
+.temp-card {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    border: 1px solid #000; // ← black border
+  }
+    
+  mat-card-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  
+  mat-card-content p {
+    font-size: 16px;
+    margin: 4px 0;
+  }
+  
+  strong {
+    font-weight: 600;
+  }
+  

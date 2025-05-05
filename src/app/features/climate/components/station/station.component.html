@@ -1,17 +1,19 @@
-<mat-card class="station-card" *ngFor="let station of mockStations" (click)="selectStation(station)">
-    <div class="station-container">
-      <mat-icon class="station-icon">place</mat-icon>
-      <div class="station-details">
-        <div class="station-name">{{ station.properties.name }}</div>
-        <div class="station-meta">
-          ID: {{ station.properties.stationIdentifier }} |
-          Elevation: {{ station.properties.elevation.value }}m
-        </div>
-      </div>
-    </div>
+<mat-card class="station-dropdown-card">
+    <mat-card-title>Select a Weather Station</mat-card-title>
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Station</mat-label>
+        <mat-select [(value)]="selectedStation">
+          <mat-option *ngFor="let station of mockStations" [value]="station">
+            {{ station.properties.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
   </mat-card>
-<app-temperature
+  
+  <app-temperature
     *ngIf="selectedStation"
     [station]="selectedStation"
->
-</app-temperature>
+  ></app-temperature>
+  
