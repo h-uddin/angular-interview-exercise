@@ -4,15 +4,22 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { Station } from 'src/app/shared/models/station.model';
+import { TemperatureComponent } from '../temperature/temperature.component';
 
 @Component({
   selector: 'app-station',
   standalone: true,
-  imports: [CommonModule, MatListModule, MatIconModule, MatCardModule ],
+  imports: [CommonModule, MatListModule, MatIconModule, MatCardModule, TemperatureComponent ],
   templateUrl: './station.component.html',
   styleUrls: ['./station.component.scss']
 })
 export class StationComponent {
+  selectedStation: Station | null = null;
+
+  selectStation(station: Station): void {
+    this.selectedStation = station;
+  }
+
   mockStations: Station[] = [
     {
       id: 'https://api.weather.gov/stations/0007W',
