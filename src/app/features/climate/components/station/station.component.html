@@ -3,7 +3,7 @@
   <mat-card-content>
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Stations</mat-label>
-      <mat-select [(value)]="selectedStation">
+      <mat-select [(value)]="selectedStation" (selectionChange)="onStationSelect($event.value)">
         <mat-option *ngFor="let station of stations" [value]="station">
           {{ station.properties.name }}
         </mat-option>
@@ -15,6 +15,7 @@
 <app-temperature
   *ngIf="selectedStation"
   [station]="selectedStation"
+  [temperature]="temperature"
 ></app-temperature>
 
 <div *ngIf="errorMessage" class="error">

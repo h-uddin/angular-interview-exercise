@@ -32,4 +32,13 @@ export class NationalWeatherService {
     console.error(errorMessage);
     return throwError(() => new Error('Something went wrong; please try again later.'));
   }
+
+  getLatestObservation(stationId: string): Observable<any> {
+    const url = `https://api.weather.gov/stations/${stationId}/observations?limit=1`;
+    return this.http.get<any>(url).pipe(
+      retry(2), // Retry up to 2 times before failing
+      catchError(this.handleError)
+    );
+  }
+  
 }

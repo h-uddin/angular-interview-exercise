@@ -85,4 +85,32 @@ describe('NationalWeatherService', () => {
     req.flush({ features: mockStations });
   });
 
+  it('should fetch the latest observation for a station', () => {
+    const mockObservation = {
+      features: [
+        {
+          properties: {
+            temperature: {
+              value: 25.6,
+              unitCode: 'wmoUnit:degC'
+            },
+            textDescription: 'Partly Cloudy'
+          }
+        }
+      ]
+    };
+  
+    const stationId = 'STN1';
+  
+    service.getLatestObservation(stationId).subscribe((observation) => {
+      expect(observation.features.length).toBe(1);
+      expect(observation.features[0].properties.temperature.value).toBe(25.6);
+      expect(observation.features[0].properties.textDescription).toBe('Partly Cloudy');
+    });
+  
+    const req = httpMock.expectOne(`https://api.weather.gov/stations/${stationId}/observations?limit=1`);
+    expect(req.request.method).toBe('GET');
+    req.flush(mockObservation);
+  });
+  
 });

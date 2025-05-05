@@ -20,6 +20,7 @@ export class StationComponent implements OnInit {
   selectedStation: Station | null = null;
   stations: Station[] = [];
   errorMessage: string = '';
+  temperature: number | null = null;
 
   constructor(private weatherService: NationalWeatherService) {}
 
@@ -29,8 +30,24 @@ export class StationComponent implements OnInit {
         this.stations = data;
       },
       error: (error) => {
-        this.errorMessage = error.message;
+        console.error('Error fetching observation:', error);
+        this.stations = null;
       }
     });
+  }
+  
+  onStationSelect(station: Station): void {
+    this.selectedStation = station;
+    this.weatherService.getLatestObservation(station.properties.stationIdentifier)
+      .subscribe({
+        next: (data) => {
+          const temp = data.features[0]?.properties?.temperature?.value;
+          this.temperature = temp !== null ? temp : null;
+        },
+        error: (error) => {
+          console.error('Error fetching observation:', error);
+          this.temperature = null;
+        }
+      });
   }
 }

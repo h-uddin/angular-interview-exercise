@@ -1,9 +1,10 @@
 <mat-card class="temp-card">
-    <mat-card-title>Current Temperature</mat-card-title>
-    <mat-card-content>
-      <p><strong>Station:</strong> {{ station.properties.name }}</p>
-      <p><strong>ID:</strong> {{ station.properties.stationIdentifier }}</p>
-      <p><strong>Temperature:</strong> --°C</p> 
-    </mat-card-content>
-  </mat-card>
-  
+  <mat-card-title>Current Temperature</mat-card-title>
+  <mat-card-content>
+    <p><strong>Station:</strong> {{ station.properties.name }}</p>
+    <p><strong>ID:</strong> {{ station.properties.stationIdentifier }}</p>
+    <p><strong>Temperature:</strong>
+      {{ temperature }} °C ----
+      {{ temperature | tempConverter:'F' }}
+    </p>  </mat-card-content>
+</mat-card>
