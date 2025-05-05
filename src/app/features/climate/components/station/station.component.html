@@ -2,7 +2,7 @@
     <mat-card-title>Select a Weather Station</mat-card-title>
     <mat-card-content>
       <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Station</mat-label>
+        <mat-label>Stations</mat-label>
         <mat-select [(value)]="selectedStation">
           <mat-option *ngFor="let station of mockStations" [value]="station">
             {{ station.properties.name }}
