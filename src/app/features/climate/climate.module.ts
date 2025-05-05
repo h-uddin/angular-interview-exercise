@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ClimateRoutingModule } from './climate-routing.module';
+import { climateRoutes } from './climate.routes';
 
 @NgModule({
   imports: [
     CommonModule,
-    ClimateRoutingModule
+    climateRoutes
   ]
 })
 export class ClimateModule { }
