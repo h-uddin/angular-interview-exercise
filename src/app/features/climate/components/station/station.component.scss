@@ -1,0 +1,32 @@
+.station-card {
+    margin-bottom: 12px;
+    padding: 12px;
+  }
+  
+  .station-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .station-icon {
+    font-size: 30px;
+    color: #3f51b5;
+    margin-right: 12px;
+  }
+  
+  .station-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .station-name {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  
+  .station-meta {
+    font-size: 13px;
+    color: #555;
+  }
+  

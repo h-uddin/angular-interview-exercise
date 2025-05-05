@@ -1,1 +1,13 @@
-<p>station works!</p>
+<mat-card class="station-card" *ngFor="let station of mockStations">
+    <div class="station-container">
+      <mat-icon class="station-icon">place</mat-icon>
+      <div class="station-details">
+        <div class="station-name">{{ station.properties.name }}</div>
+        <div class="station-meta">
+          ID: {{ station.properties.stationIdentifier }} |
+          Elevation: {{ station.properties.elevation.value }}m
+        </div>
+      </div>
+    </div>
+  </mat-card>
+  
