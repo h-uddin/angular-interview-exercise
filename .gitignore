@@ -45,3 +45,43 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# .NET build artifacts
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code folders
+.vscode/
+.history/
+
+# Visual Studio temp files
+*.vspscc
+*.vssscc
+.vs/
+
+# NuGet
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# Logs
+*.log
+
+# Swagger generated files
+swagger-ui/
+*.swagger
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Angular specific (if your frontend lives inside this repo)
+**/node_modules/
+**/dist/
+**/coverage/
+.env
